@@ -105,14 +105,19 @@ app.get('/events', (req, res) => {
 
 // Webhook from Railway
 app.post(['/webhook', '/'], (req, res) => {
-    const { deployment, status, project, service } = req.body;
-    if (deployment) {
+    console.log('Webhook received:', JSON.stringify(req.body, null, 2));
+    const { deployment, status, project, service, type } = req.body;
+    
+    // Railway sometimes sends 'type' for the event
+    const finalStatus = status || deployment?.status || type;
+    
+    if (deployment || type) {
         const update = {
             type: 'update',
-            serviceId: service?.id || deployment.serviceId,
-            serviceName: service?.name || 'Unknown',
+            serviceId: service?.id || deployment?.serviceId,
+            serviceName: service?.name || deployment?.serviceName || 'Unknown',
             projectName: project?.name || 'Unknown',
-            status: status || deployment.status,
+            status: finalStatus,
             at: new Date().toISOString()
         };
         

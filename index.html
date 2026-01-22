@@ -25,10 +25,9 @@
         .name { color: #fff; font-weight: bold; }
         .project { color: #666; font-size: 0.8rem; }
         .status { font-weight: bold; padding: 2px 8px; border-radius: 3px; }
-        .status.SUCCESS { color: #00ff00; }
-        .status.BUILDING { color: #ffff00; }
-        .status.CRASHED, .status.FAILED { color: #ff4444; }
-        .status.INITIALIZING { color: #00aaff; }
+        .status.SUCCESS, .status.DEPLOYED, .status.REDEPLOYED { color: #00ff00; }
+        .status.BUILDING, .status.INITIALIZING, .status.CREATED { color: #ffff00; }
+        .status.CRASHED, .status.FAILED, .status.REMOVED { color: #ff4444; }
         .time { 
             color: #39FF14; 
             font-size: 1.2rem; 
