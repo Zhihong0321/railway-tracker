@@ -73,7 +73,8 @@ async function fetchStatus() {
                         projectName: p.node.name,
                         serviceName: serviceMap[sId] || 'Unknown Service',
                         status: d.node.status,
-                        at: d.node.createdAt
+                        at: d.node.createdAt,
+                        projectUrl: `https://railway.app/project/${p.node.id}`
                     };
                 });
             });

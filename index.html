@@ -29,7 +29,25 @@
         .status.BUILDING { color: #ffff00; }
         .status.CRASHED, .status.FAILED { color: #ff4444; }
         .status.INITIALIZING { color: #00aaff; }
-        .time { color: #444; font-size: 0.7rem; margin-top: 4px; }
+        .time { 
+            color: #39FF14; 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            margin-top: 8px;
+            text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14;
+        }
+        .actions { margin-top: 10px; }
+        .btn-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #000;
+            background: #fff;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 2px;
+        }
+        .btn-link:hover { background: #ccc; }
         #controls { margin-top: 20px; font-size: 0.8rem; color: #555; }
         button { background: #222; color: #888; border: 1px solid #444; padding: 5px 10px; cursor: pointer; }
         button:hover { background: #333; color: #fff; }
@@ -98,6 +116,9 @@
                             <span class="name">${s.serviceName}</span>
                             <span class="project">${s.projectName}</span>
                             <span class="time">${new Date(s.at).toLocaleString()}</span>
+                            <div class="actions">
+                                <a href="${s.projectUrl}" target="_blank" class="btn-link">OPEN PROJECT</a>
+                            </div>
                         </div>
                         <span class="status ${s.status}">${s.status}</span>
                     </div>
