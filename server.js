@@ -104,7 +104,7 @@ app.get('/events', (req, res) => {
 });
 
 // Webhook from Railway
-app.post('/webhook', (req, res) => {
+app.post(['/webhook', '/'], (req, res) => {
     const { deployment, status, project, service } = req.body;
     if (deployment) {
         const update = {
