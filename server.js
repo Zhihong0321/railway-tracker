@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const RAILWAY_API_TOKEN = '8861c344-0a15-40a1-a47c-6845dc591cea';
 
 app.use(express.json());
@@ -133,8 +133,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(port, () => {
-    console.log(`Tracker running at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Tracker running on port ${port}`);
     fetchStatus();
 });
 
